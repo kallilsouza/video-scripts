@@ -26,4 +26,4 @@ fi
 echo "Reducing video size for file $INPUT_FILENAME with FFMPEG"
 echo "Using quality reduction: $QUALITY_REDUCTION% → CQ level: $CQ"
 
-ffmpeg -hwaccel cuda -i "$INPUT_FILENAME" -c:v hevc_nvenc -preset fast -cq $CQ "$OUTPUT_FILENAME"
+ffmpeg -hwaccel cuda -i "$INPUT_FILENAME" -map_metadata 0 -c:v hevc_nvenc -preset fast -cq $CQ "$OUTPUT_FILENAME"
